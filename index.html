@@ -4,13 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #wrap {
+            background-color:beige;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .svg-wrap {
+            background-color: #fff;
+            width: 300px;
+            height: 300px;
+            box-sizing: border-box;
+            border-radius:50%;
+        }
+        .eyes {
+            transform-origin: 50% 50% -40px;
+        }
+
+
+        .box {
+            position: absolute;
+            left: 300px;
+            top: 600px;
+            border: 4px solid #000;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-    <div class="svg-wrap" style="width:300px;height:300px;">
-        <svg id="ryan" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="60" cy="60" r="40" fill="#e0a243" stroke="#000" stroke-width="2.5" />
-        </svg>
+    <div id="wrap">
+        <div class="svg-wrap" style="display: none;">
+            <svg id="ryan" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <!-- 귀 -->
+                <g class="ears">
+                    <path d="M46,32 L46,30 C46,16 26,16 26,30 L26,32" fill="#e0a243" stroke="#000" stroke-width="2.5" stroke-linecap="round" transform="rotate(-10,38,24)" />
+                    <path d="M74,32 L74,30 C74,16 94,16 94,30 L94,32" fill="#e0a243" stroke="#000" stroke-width="2.5" stroke-linecap="round" transform="rotate(10,82,24)" />
+                </g>
+                <circle cx="60" cy="60" r="40" fill="#e0a243" stroke="#000" stroke-width="2.5" />
+                <!-- 눈 -->
+                <g class="eyes">
+                    <line x1="37" x2="50" y1="46" y2="46" stroke="#000" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="44" cy="55" r="3" fill="#000" />
+                    <line x1="70" x2="83" y1="46" y2="46" stroke="#000" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="76" cy="55" r="3" fill="#000" />
+                </g>
+                <!-- 코 -->
+                <polygon
+                    points="59,63.5,60,63.4,61,63.5,60,65"
+                    fill="#000"
+                    stroke="#000"
+                    stroke-width="5"
+                    stroke-linejoin="round"
+                />
+                <g class="muzzle">
+                    <path d="M60,66 C58.5,61 49,63 49,69 C49,75 58,77 60,71 M60,66 C61.5,61 71,63 71,69 C71,75 62,77 60,71" fill="#fff" />
+                    <path d="M60,66 C58.5,61 49,63 49,69 C49,75 58,77 60,71 M60,66 C61.5,61 71,63 71,69 C71,75 62,77 60,71" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+                    <polygon points="59,63.5,60,63.4,61,63.5,60,65" fill="#000" stroke="#000" stroke-width="5" stroke-linejoin="round" />
+                </g>
+            </svg>
+        </div>
     </div>
-    
+
+
+    <div class="box">getBoundingClientRect</div>
+
+    <script>
+        var box = document.querySelector('.box');
+        console.log(box.getBoundingClientRect());
+    </script>
 </body>
 </html>
